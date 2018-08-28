@@ -26,6 +26,8 @@ class Star extends Component{
                 <input id="starName" type="text" onChange={this.handleNameChange}></input>
                 <label for="#roleName">Role</label>
                 <input id="roleName" type="text" onChange={this.handleRoleChange}></input>
+                <br/>
+                {this.state.name} is famous for {this.state.role}
             </div>
         );
     }
