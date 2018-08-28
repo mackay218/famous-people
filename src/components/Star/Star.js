@@ -5,34 +5,34 @@ class Star extends Component{
     constructor() {
         super();
 
-        this.state = {name: '' , role: ''};
+        this.state = {star: {}};
 
     }
     
-    handleNameChange = (event) => {
-        this.setState({ name: event.target.value});
+    handleChange = (event) => {
+        let star = this.state.star;
+        let name = event.target.name;
+        let value = event.target.value;
+    
+        star[name] = value;
        
+        this.setState({star});
     }
     
-    handleRoleChange = (event) => {
-        this.setState({ role: event.target.value});
-        
-    }
-
     saveStar = () => {
-        console.log(this.state);
+        console.log(this.state.star);
     } 
 
     render(){
         return(
             <div className="starContainer"> 
                 <label for="#starName">Star:</label>
-                <input id="starName" type="text" onChange={this.handleNameChange}></input>
+                <input name="name" id="starName" type="text" onChange={this.handleChange}></input>
                 <label for="#roleName">Role:</label>
-                <input id="roleName" type="text" onChange={this.handleRoleChange}></input>
+                <input name="role" id="roleName" type="text" onChange={this.handleChange}></input>
                 <button onClick={this.saveStar}>Submit</button>
                 <br/>
-                {this.state.name} is famous for {this.state.role}
+                {this.state.star.name} is famous for {this.state.star.role}
                 
             </div>
         );
